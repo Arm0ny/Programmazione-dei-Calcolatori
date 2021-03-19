@@ -28,11 +28,13 @@ dynarray in_array( dynarray A, int k){
 
 dynarray out_array( dynarray A ){
 	A.n -= 1;
+	
+	if ( A.n < A.c/4 ){
+		A.c = A.c/2;
+		A.a = realloc(A.a, sizeof(int)*A.c);
+	}
+	
 	return A;
-/*
- * TODO: Migliorare gestione memoria.
- * */
-
 }
 
 void main(){
