@@ -14,11 +14,17 @@ dynarray array_in( dynarray, int, int );
 dynarray array_del( dynarray, int );
 dynarray array_new();
 
+/*
+ * Nuovo array vuoto
+ * */
 dynarray array_new(){
 	dynarray A = {NULL, 0, 0};
 	return A;
 }
 
+/*
+ * Inseriemento in fondo
+ * */
 dynarray array_push( dynarray A, int k){
 	if (A.n == A.c) {
 		A.c = 2*A.c + 1;
@@ -29,6 +35,9 @@ dynarray array_push( dynarray A, int k){
 	return A;
 }
 
+/*
+ * Inseriemento in posizione pos
+ * */
 dynarray array_in( dynarray A, int pos, int k){
 	int i;
 	
@@ -47,6 +56,9 @@ dynarray array_in( dynarray A, int pos, int k){
 	return A;
 }
 
+/*
+ * Cancellazione ultimo elemento
+ * */
 dynarray array_pop( dynarray A ){
 	A.n -= 1;
 	
@@ -58,6 +70,9 @@ dynarray array_pop( dynarray A ){
 	return A;
 }
 
+/*
+ * Cancellazione elemento in posizione pos
+ * */
 dynarray array_del(dynarray A, int pos){
 	int i;
 	
