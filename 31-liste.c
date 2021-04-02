@@ -1,24 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-struct nodo {
-	int chiave;
-	struct nodo *succ, *prec;
-};
-typedef struct nodo nodo;
-
-typedef nodo *lista;
-
-
-lista lista_vuota();
-lista lista_in0(lista, int);
-lista lista_in1(lista, int);
-lista lista_in(lista, int, int );
-lista lista_out0(lista);
-lista lista_out(lista, int);
-void lista_print(lista);
-int lista_len(lista);
-nodo *lista_search(lista, int);
+#include "31-liste.h"
 
 /*
  * Creazione di una nuova lista
@@ -189,25 +169,3 @@ nodo *lista_search(lista b, int pos){
 }
 
 
-void main(){
-	lista a = lista_vuota();
-	nodo *p;
-	/* nodo *a = lista_vuota()  */
-	int i;
-	
-	for ( i = 0; i < 10; i++)
-		a = lista_in0(a, i);
-		
-	a = lista_in(a, lista_len(a), 100);
-		
-	lista_print( a );
-	
-	a = lista_out(a, 11);
-	
-	lista_print( a );
-	
-	while( a->succ != NULL ){
-		a = lista_out1(a);
-		lista_print(a);
-	}
-}
